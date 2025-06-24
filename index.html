@@ -27,23 +27,24 @@
       text-decoration: underline;
     }
 
-    /* Layout */
-    .container {
-      display: flex;
-      min-height: 100vh;
-    }
-   .contact-links p {
-  margin: 0.2rem 0;
-  font-size: 0.9rem;
-  color: #16a085;
-  font-weight: 600;
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  width: 100%;
 }
 
-.contact-links {
-  display: block;
-  text-align: left;
+.contact-links a {
+  color: #16a085;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   font-size: 0.9rem;
-  margin-top: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 .contact-links a:hover,
@@ -53,10 +54,16 @@
 }
 
 .contact-links span {
-  font-size: 1.2rem;
-  line-height: 1;
+  font-size: 1.1rem;
 }
 
+    
+    /* Layout */
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+   
     /* Sidebar */
     nav.sidebar {
       width: 260px;
@@ -95,21 +102,7 @@
       margin: 0 0 1rem 0;
       color: #bdc3c7;
     }
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      font-size: 1.4rem;
-    }
-    .contact-links a {
-      color: #16a085;
-      transition: color 0.3s ease;
-      text-decoration: none;
-    }
-    .contact-links a:hover,
-    .contact-links a:focus {
-      color: #004d40;
-    }
+    
 
     nav.sidebar ul {
       list-style: none;
@@ -253,10 +246,17 @@
       <h1>Most Husne Jahan</h1>
       <p class="role">PhD Student, York University</p>
       <div class="contact-links" aria-label="Contact Information">
-        <p><a href="mailto:mosthusne.jahan@gmail.com" title="Email"><span>📧</span> mosthusne.jahan@gmail.com</a></p>
-        <p><a href="http://linkedin.com/in/husnejahan" target="_blank" rel="noopener noreferrer" title="LinkedIn"><span>🔗</span> linkedin.com/in/husnejahan</a></p>
-        <p><a href="https://github.com/husnejahan" target="_blank" rel="noopener noreferrer" title="GitHub"><span>🐙</span> github.com/husnejahan</a></p>
-      </div>
+      <a href="mailto:mosthusne.jahan@gmail.com" title="Email">
+        <span>📧</span> mosthusne.jahan@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/husnejahan" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+        <span>🔗</span> linkedin.com/in/husnejahan
+      </a>
+      <a href="https://github.com/husnejahan" target="_blank" rel="noopener noreferrer" title="GitHub">
+        <span>🐙</span> github.com/husnejahan
+      </a>
+    </div>
+
     </div>
 
       <ul>
