@@ -32,6 +32,31 @@
       display: flex;
       min-height: 100vh;
     }
+   .contact-links p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: #16a085;
+  font-weight: 600;
+}
+
+.contact-links a {
+  color: #16a085;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.contact-links a:hover,
+.contact-links a:focus {
+  color: #004d40;
+  text-decoration: underline;
+}
+
+.contact-links span {
+  font-size: 1.2rem;
+  line-height: 1;
+}
 
     /* Sidebar */
     nav.sidebar {
@@ -226,14 +251,15 @@
     <nav class="sidebar" role="navigation" aria-label="Sidebar Navigation">
       <img src="profile.png" alt="Most Husne Jahan" class="profile-pic" />
       <div class="sidebar-header">
-        <h1>Most Husne Jahan</h1>
-        <p class="role">PhD Student, York University</p>
-        <p class="contact-links" aria-label="Contact links">
-          <a href="mailto:mosthusne.jahan@gmail.com" title="Email">📧</a>
-          <a href="http://linkedin.com/in/husnejahan" target="_blank" rel="noopener noreferrer" title="LinkedIn">🔗</a>
-          <a href="https://github.com/husnejahan" target="_blank" rel="noopener noreferrer" title="GitHub">🐙</a>
-        </p>
+      <h1>Most Husne Jahan</h1>
+      <p class="role">PhD Student, York University</p>
+      <div class="contact-links" aria-label="Contact Information">
+        <p><a href="mailto:mosthusne.jahan@gmail.com" title="Email"><span>📧</span> mosthusne.jahan@gmail.com</a></p>
+        <p><a href="http://linkedin.com/in/husnejahan" target="_blank" rel="noopener noreferrer" title="LinkedIn"><span>🔗</span> linkedin.com/in/husnejahan</a></p>
+        <p><a href="https://github.com/husnejahan" target="_blank" rel="noopener noreferrer" title="GitHub"><span>🐙</span> github.com/husnejahan</a></p>
       </div>
+    </div>
+
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#education">Education</a></li>
