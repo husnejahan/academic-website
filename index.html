@@ -2,84 +2,179 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Most Husne Jahan | PhD Student</title>
+
   <style>
+    /* Sidebar Layout Styles */
     * {
       box-sizing: border-box;
     }
-
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       display: flex;
       background: #f8f9fa;
       color: #333;
+      min-height: 100vh;
     }
-
     aside {
       width: 250px;
       background-color: #343a40;
       color: white;
-      min-height: 100vh;
       padding: 20px;
+      flex-shrink: 0;
     }
-
     aside img {
       width: 100%;
       border-radius: 10px;
       margin-bottom: 15px;
+      object-fit: cover;
     }
-
     aside h1 {
       font-size: 1.5rem;
       margin-bottom: 10px;
+      font-weight: 700;
     }
-
+    aside p {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-style: italic;
+      color: #adb5bd;
+    }
     aside nav a {
       display: block;
       padding: 10px 0;
-      color: #ddd;
+      color: #ced4da;
       text-decoration: none;
+      font-weight: 500;
+      border-left: 4px solid transparent;
+      transition: color 0.2s, border-left 0.2s;
     }
-
-    aside nav a:hover {
-      color: white;
+    aside nav a:hover,
+    aside nav a:focus {
+      color: #fff;
+      border-left: 4px solid #20c997; /* teal */
+      outline: none;
     }
-
     main {
       flex: 1;
       padding: 40px;
       background-color: white;
+      overflow-y: auto;
     }
-
     section {
       margin-bottom: 50px;
     }
 
-    h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 5px;
+    /* Section titles */
+    h2, h3.page-title {
+      border-bottom: 3px solid #20c997; /* teal */
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      color: #20c997;
+      font-weight: 700;
+    }
+
+    /* Cards and grid */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -10px;
+    }
+    .col {
+      padding: 0 10px;
       margin-bottom: 20px;
     }
+    .s12 { width: 100%; }
+    .m6, .l6 { width: 50%; }
 
-    ul {
-      list-style-type: none;
-      padding-left: 0;
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
     }
-
-    li {
+    .card:hover {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .card-content {
+      flex-grow: 1;
+    }
+    .card-title {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    a.teal-text {
+      color: #20c997;
+      text-decoration: none;
+    }
+    a.teal-text:hover {
+      text-decoration: underline;
+    }
+    .brown-text {
+      color: #6d4c41;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+    .role {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #5d4037;
+    }
+    p, ul {
+      line-height: 1.5;
+      font-size: 0.95rem;
+      margin-top: 0;
       margin-bottom: 10px;
     }
+    ul ul {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 1.2em;
+    }
+    .card-action {
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+      font-size: 0.85rem;
+      color: #666;
+    }
+    .responsive-img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .center-block {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
+    /* Responsive */
     @media (max-width: 768px) {
       body {
         flex-direction: column;
       }
-
       aside {
         width: 100%;
         min-height: auto;
+      }
+      .m6, .l6 {
+        width: 100%;
+      }
+      main {
+        padding: 20px;
       }
     }
   </style>
@@ -91,6 +186,7 @@
     <p>PhD Student, York University</p>
     <nav>
       <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
       <a href="#experience">Experience</a>
       <a href="#publications">Publications</a>
       <a href="#awards">Awards</a>
@@ -100,52 +196,356 @@
   </aside>
 
   <main>
-    <section id="education">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>PhD in Computer Science</strong>, York University (2023 – Present)</li>
-        <li><strong>MSc in Computer Science</strong>, University of Dhaka (2018 – 2020)</li>
-      </ul>
+    <!-- Education Section -->
+    <section id="education" class="section scrollspy">
+      <h3 class="page-title">Education</h3>
+      <div class="container">
+        <div class="row">
+          <!-- Education 1 -->
+          <div class="col s12 m6 l6">
+            <div class="card">
+              <div class="card-content">
+                <p>
+                  <span class="card-title">
+                    <a href="https://www.torontomu.ca/" target="_blank" class="teal-text hoverline">Toronto Metropolitan University</a>
+                  </span>
+                </p>
+                <p class="brown-text">Toronto, Canada</p>
+                <p>
+                  <b>Degree:</b> Master of Engineering in Electrical and Computer Engineering<br />
+                  <b>CGPA:</b> 3.63/4.33
+                </p>
+                <p><b>Relevant Courseworks:</b></p>
+                <ul>
+                  <li>Neural Information Processing</li>
+                  <li>Machine Learning</li>
+                  <li>Topics in Data Science</li>
+                  <li>Deep learning</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education 2 -->
+          <div class="col s12 m6 l6">
+            <div class="card">
+              <div class="card-content">
+                <p>
+                  <span class="card-title">
+                    <a href="https://www.ruet.ac.bd/" target="_blank" class="teal-text hoverline">Rajshahi University of Engineering & Technology (RUET)</a>
+                  </span>
+                </p>
+                <p class="brown-text">Rajshahi, Bangladesh</p>
+                <p>
+                  <b>Degree:</b> Bachelor of Science in Electrical & Electronic Engineering<br />
+                  <b>CGPA:</b> 3.62/4.0
+                </p>
+                <p><b>Relevant Courseworks:</b></p>
+                <ul>
+                  <li>Introduction to Programming Language</li>
+                  <li>Engineering Mathematics-I</li>
+                  <li>Engineering Mathematics-II</li>
+                  <li>Engineering Mathematics-III</li>
+                  <li>Engineering Mathematics-IV</li>
+                  <li>Engineering Mathematics-V</li>
+                  <li>Electromagnetic Fields & Waves</li>
+                  <li>Introduction to Digital System & Design</li>
+                  <li>Micro processor & Microcomputer System</li>
+                  <li>Advance Computer Programming</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <ul>
-        <li><strong>Software Security Engineer</strong>, UCBL (2009 – Present)</li>
-        <li><strong>Research Assistant</strong>, AI & Vision Lab (2023 – Present)</li>
-      </ul>
+    <!-- Certifications Section -->
+    <section id="certifications" class="section scrollspy">
+      <h3 class="page-title">Certifications</h3>
+      <div class="container flow-text">
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12">
+                <ul>
+                  <li>How Google does Machine Learning - Google Cloud Training - Issued by Coursera</li>
+                  <li>Launching into Machine Learning - Google Cloud Training - Issued by Coursera</li>
+                  <li>Convolutional Neural Networks in TensorFlow - Issued by Coursera</li>
+                  <li>Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning - Issued by Coursera</li>
+                  <li>Introduction to Containers w/ Docker, Kubernetes & OpenShift - Issued by Coursera</li>
+                  <li>Containers & Kubernetes Essentials - Issued by IBM</li>
+                  <li>Design Thinking for Innovation - University of Virginia - Issued by Coursera</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="publications">
-      <h2>Publications</h2>
-      <ul>
-        <li>“Multimodal Graph-RAG for Visual Genome”, CVPR Workshop 2025.</li>
-        <li>“Mitigating Hallucination in MLLMs”, ICCV 2025 (under review).</li>
-      </ul>
+    <!-- Experience Section -->
+    <section id="experience" class="section scrollspy">
+      <h3 class="page-title">Experience</h3>
+      <div class="container">
+
+        <!-- Latest Experience -->
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12 m2">
+                <a href="https://www.cintiqs.com/" target="_blank">
+                  <img alt="cintiqs logo" src="/assets/img/CINTIQS_Logo_Print_Reverse_White_Words_p.webp" class="responsive-img center-block" />
+                </a>
+              </div>
+              <div class="col s12 m10">
+                <p>
+                  <span class="card-title">
+                    <a href="https://www.cintiqs.com/" target="_blank" class="teal-text hoverline">CINTIQS</a>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="role brown-text text-darken-2">Senior Artificial Intelligence Engineer</div>
+            <ul>
+              <li>
+                I have worked on AI Innovation projects to build the whole pipeline of AI software for the military, defense industry. Platform using Flask, OCR, and Docker.
+              </li>
+              <li><b>Tools:</b> Python, Flask, SQLite, OCR</li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <span>January 2022 - Sep 2022 | Ottawa, Ontario, Canada</span>
+          </div>
+        </div>
+
+        <!-- Experience 1 --> 
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12 m2">
+                <a href="https://atelesys.com/" target="_blank">
+                  <img alt="Atelesys logo" src="/assets/img/atelesys.png" class="responsive-img center-block" />
+                </a>
+              </div>
+              <div class="col s12 m10">
+                <p>
+                  <span class="card-title">
+                    <a href="https://atelesys.com/" target="_blank" class="teal-text hoverline">Atelesys</a>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="role brown-text text-darken-2">Software Developer</div>
+            <ul>
+              <li>
+                I have worked on Python and React to develop end-to-end applications that meet project requirements efficiently.
+              </li>
+              <li><b>Tools:</b> Python, Flask, React</li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <span>Oct 2021 - Dec 2022 | Toronto, Ontario, Canada</span>
+          </div>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12 m2">
+                <img alt="Intelense logo" src="/assets/img/intelense.webp" class="responsive-img center-block" />
+              </div>
+              <div class="col s12 m10">
+                <p>
+                  <span class="card-title">
+                    <a href="https://www.intelense.com/" class="teal-text hoverline">Intelense</a>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="role brown-text text-darken-2">Artificial Intelligence Developer</div>
+            <ul>
+              <li>
+                I have programmed building real-time video analytics for public safety applications like anomaly detection (GAN, WGAN, VAE), accident detection, Fall detection (pose estimation), Fight detection, Fire and smoke detection, etc.
+              </li>
+              <li>
+                Using real-time camera feed (RTSP, HTTP), I have integrated AI solution for public safety using Deep learning, computer vision in development platform.
+              </li>
+              <li>
+                Built a modular video analytics app using Flask, OpenCV that tracks the location of each human in a multi-camera environment; utilized perspective transformation, object detection, and object tracking.
+              </li>
+              <li>
+                I have worked to build the whole pipeline of different ongoing projects. I have accomplished research and development of new equipment, products and processes. Reviewed literature to remain current with new procedures and apply learnings to related research.
+              </li>
+              <li>
+                Created an alert system to send notifications and emails when the parameters exceed the threshold of anomaly detection.
+              </li>
+              <li><b>Tools:</b> Python, Flask, JavaScript</li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <span>Jun 2020 - Sep 2021 | Toronto, Canada</span>
+          </div>
+        </div>
+
+        <!-- Experience 3 -->
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12 m2">
+                <a href="https://www.polaristransport.com/" target="_blank">
+                  <img alt="Polaris logo" src="/assets/img/polaris-logo.png" class="responsive-img center-block" />
+                </a>
+              </div>
+              <div class="col s12 m10">
+                <p>
+                  <span class="card-title">
+                    <a href="https://www.polaristransport.com/" target="_blank" class="teal-text hoverline">Polaris Transport</a>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="role brown-text text-darken-2">Machine Learning Developer</div>
+            <ul>
+              <li>
+                I have worked on classification of customer email in work fusion automation process, other relevant machine learning tasks.
+              </li>
+              <li><b>Tools:</b> Python, Scikit-learn, NLTK</li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <span>Aug 2018 - Nov 2018 | Toronto, Canada</span>
+          </div>
+        </div>
+
+        <!-- Experience 4 -->
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12 m2">
+                <a href="https://www.dutchbanglabank.com/" target="_blank">
+                  <img alt="DBBL logo" src="/assets/img/dbbl.png" class="responsive-img center-block" />
+                </a>
+              </div>
+              <div class="col s12 m10">
+                <p>
+                  <span class="card-title">
+                    <a href="https://www.dutchbanglabank.com/" target="_blank" class="teal-text hoverline">Dutch-Bangla Bank</a>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="role brown-text text-darken-2">Data Analyst</div>
+            <ul>
+              <li>
+                Conducted data mining and retrieval using MySQL to pinpoint critical business areas. My key achievement is identifying top customers by using clustering algorithms.
+              </li>
+              <li>Delivered a solution for a POC with 96% accuracy on the company’s data.</li>
+              <li><b>Tools:</b> Python, MySQL</li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <span>Jun 2010 - Apr 2016 | Dhaka, Bangladesh</span>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <section id="awards">
-      <h2>Awards</h2>
-      <ul>
-        <li>Carswell Scholarship Nominee, 2025</li>
-        <li>NSERC Canada Graduate Scholarship (CGS-M), 2024</li>
-      </ul>
+    <!-- Publications Section -->
+    <section id="publications" class="section scrollspy">
+      <h3 class="page-title">Publications</h3>
+      <div class="container">
+        <div class="row">
+
+          <!-- Publication 1 -->
+          <div class="col s12 m6 l6">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">
+                  <a href="https://ieeexplore.ieee.org/document/10707915" target="_blank" class="teal-text hoverline">
+                    GESA: Exploring Loss-based Adversarial Attacks in Volumetric Media Streaming
+                  </a>
+                </span>
+                <p class="brown-text">IEEE 7th International Conference on Multimedia Information Processing and Retrieval (MIPR) 2024</p>
+                <p>
+                  We propose the Gilbert-Elliott Shape Attack algorithm to generate a 3D point cloud incomplete dataset, namely GESA, that mimics packet loss impact.
+                  This dataset represents real-world point cloud streaming scenarios, allowing performance evaluation of completion models under realistic conditions.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Publication 2 -->
+          <div class="col s12 m6 l6">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">
+                  <a href="https://ieeexplore.ieee.org/document/9761663" target="_blank" class="teal-text hoverline">
+                    LIGHTSEG: EFFICIENT YET EFFECTIVE MEDICAL IMAGE SEGMENTATION
+                  </a>
+                </span>
+                <p class="brown-text">IEEE International Symposium on Biomedical Imaging (ISBI) 2022</p>
+                <p>
+                  Reducing the number of parameters is crucial for affordable and applicable model development. 
+                  LightSeg is a lightweight, fast, and effective approach to medical image segmentation suitable for limited storage and computation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Publication 3 -->
+          <div class="col s12 m6 l6">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">
+                  <a href="#" target="_blank" class="teal-text hoverline">
+                    PAY ATTENTION FOR COVID-19 DETECTION USING EFFICIENT CONVOLUTION
+                  </a>
+                </span>
+                <p class="brown-text">IEEE International Symposium on Biomedical Imaging (ISBI) 2022</p>
+                <p>
+                  The lightweight COVIDAT-Net model with lower computational cost is an effective and robust solution for COVID-19 case classification.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
-    <section id="service">
-      <h2>Service</h2>
-      <ul>
-        <li>Reviewer, NeurIPS 2024</li>
-        <li>TA, Graduate Computer Vision, York University</li>
-      </ul>
+    <!-- Awards Section -->
+    <section id="awards" class="section scrollspy">
+      <h3 class="page-title">Awards</h3>
+      <div class="container">
+        <ul>
+          <li>Best Research Paper Award, IEEE Conference 2023</li>
+          <li>Dean’s List, Toronto Metropolitan University, 2021-2023</li>
+          <li>Scholarship for Excellence in AI Research, 2022</li>
+        </ul>
+      </div>
     </section>
 
-    <section id="misc">
-      <h2>Miscellany</h2>
-      <ul>
-        <li>Languages: Python, C++, React</li>
-        <li>Hobbies: Hiking, Digital Art</li>
-      </ul>
+    <!-- Service Section -->
+    <section id="service" class="section scrollspy">
+      <h3 class="page-title">Service</h3>
+      <div class="container">
+        <ul>
+          <li>Reviewer, IEEE Transactions on Multimedia</li>
+          <li>Volunteer, Toronto AI Meetup Group</li>
+          <li>Organizer, University AI Symposium 2023</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Miscellany Section -->
+    <section id="misc" class="section scrollspy">
+      <h3 class="page-title">Miscellany</h3>
+      <div class="container">
+        <p>Other projects, interests, or notes you want to add here.</p>
+      </div>
     </section>
   </main>
 </body>
