@@ -53,20 +53,40 @@
       border: 3px solid #16a085;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
-    nav.sidebar h1 {
+    /* Sidebar header with contact icons */
+    .sidebar-header {
+      text-align: center;
+      margin-bottom: 1.8rem;
+      width: 100%;
+    }
+    .sidebar-header h1 {
       font-size: 1.8rem;
       margin: 0 0 0.3rem 0;
       font-weight: 700;
-      text-align: center;
       letter-spacing: 1px;
     }
-    nav.sidebar p {
+    .sidebar-header p.role {
       font-style: italic;
       font-size: 0.9rem;
-      margin: 0 0 2rem 0;
+      margin: 0 0 1rem 0;
       color: #bdc3c7;
-      text-align: center;
     }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 1.4rem;
+    }
+    .contact-links a {
+      color: #16a085;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    .contact-links a:hover,
+    .contact-links a:focus {
+      color: #004d40;
+    }
+
     nav.sidebar ul {
       list-style: none;
       padding: 0;
@@ -185,7 +205,7 @@
       nav.sidebar img.profile-pic {
         display: none;
       }
-      nav.sidebar h1, nav.sidebar p {
+      nav.sidebar h1, nav.sidebar p, .sidebar-header {
         display: none;
       }
       nav.sidebar ul {
@@ -205,8 +225,15 @@
   <div class="container">
     <nav class="sidebar" role="navigation" aria-label="Sidebar Navigation">
       <img src="profile.png" alt="Most Husne Jahan" class="profile-pic" />
-      <h1>Most Husne Jahan</h1>
-      <p>PhD Student, York University</p>
+      <div class="sidebar-header">
+        <h1>Most Husne Jahan</h1>
+        <p class="role">PhD Student, York University</p>
+        <p class="contact-links" aria-label="Contact links">
+          <a href="mailto:mosthusne.jahan@gmail.com" title="Email">📧</a>
+          <a href="http://linkedin.com/in/husnejahan" target="_blank" rel="noopener noreferrer" title="LinkedIn">🔗</a>
+          <a href="https://github.com/husnejahan" target="_blank" rel="noopener noreferrer" title="GitHub">🐙</a>
+        </p>
+      </div>
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#education">Education</a></li>
@@ -215,7 +242,7 @@
         <li><a href="#publications">Publications</a></li>
         <li><a href="#awards">Awards</a></li>
         <li><a href="#service">Service</a></li>
-        <li><a href="#misc">Miscellany</a></li>
+        <li><a href="#projects">Generative AI &amp; Computer Vision Projects</a></li>
       </ul>
     </nav>
 
@@ -405,7 +432,7 @@
       </section>
 
       <!-- Awards -->
-<!--       <section id="awards" class="section">
+      <!-- <section id="awards" class="section">
         <h2 class="section-title">Awards</h2>
         <ul>
           <li>Best Research Paper Award, IEEE Conference 2023</li>
@@ -423,22 +450,22 @@
         </ul>
       </section>
 
-    <section id="projects" class="section">
-      <h2 class="section-title">Generative AI &amp; Computer Vision Projects</h2>
-      <ul>
-        <li><strong>LLM + OCR Analysis:</strong> Automated text extraction and understanding from scanned documents and images using OCR + LLM.</li>
-        <li><strong>Visual Hallucination Mitigation:</strong> Developed a framework to improve image-text alignment in Multimodal LLMs, enhancing output realism.</li>
-        <li><strong>3D Point Cloud Completion:</strong> Designed a transformer-based model improving structural accuracy in 3D reconstructions.</li>
-        <li><strong>Adversarial 3D Dataset:</strong> Created perturbed point clouds to evaluate and improve model robustness.</li>
-        <li><strong>GAN-based Image Restoration:</strong> Restored old/damaged images and videos, including colorization and frame generation.</li>
-        <li><strong>Real-Time Anomaly Detection (WGAN):</strong> Built a fast, accurate detection system for surveillance and sensor data.</li>
-        <li><strong>3D CNN for Activity Recognition:</strong> Optimized models for reliable action detection in video datasets.</li>
-        <li><strong>Lightweight Object Detection:</strong> Deployed compressed YOLO models on edge devices with high accuracy.</li>
-        <li><strong>Face Recognition System:</strong> Enabled reliable, real-time face detection and recognition in video streams.</li>
-        <li><strong>Image Synthesis (ACGAN):</strong> Improved image generation quality for synthetic data use.</li>
-        <li><strong>UNet for Medical Segmentation:</strong> Enhanced segmentation speed and model efficiency for biomedical images.</li>
-      </ul>
-    </section>
+      <section id="projects" class="section">
+        <h2 class="section-title">Generative AI &amp; Computer Vision Projects</h2>
+        <ul>
+          <li><strong>LLM + OCR Analysis:</strong> Automated text extraction and understanding from scanned documents and images using OCR + LLM.</li>
+          <li><strong>Visual Hallucination Mitigation:</strong> Developed a framework to improve image-text alignment in Multimodal LLMs, enhancing output realism.</li>
+          <li><strong>3D Point Cloud Completion:</strong> Designed a transformer-based model improving structural accuracy in 3D reconstructions.</li>
+          <li><strong>Adversarial 3D Dataset:</strong> Created perturbed point clouds to evaluate and improve model robustness.</li>
+          <li><strong>GAN-based Image Restoration:</strong> Restored old/damaged images and videos, including colorization and frame generation.</li>
+          <li><strong>Real-Time Anomaly Detection (WGAN):</strong> Built a fast, accurate detection system for surveillance and sensor data.</li>
+          <li><strong>3D CNN for Activity Recognition:</strong> Optimized models for reliable action detection in video datasets.</li>
+          <li><strong>Lightweight Object Detection:</strong> Deployed compressed YOLO models on edge devices with high accuracy.</li>
+          <li><strong>Face Recognition System:</strong> Enabled reliable, real-time face detection and recognition in video streams.</li>
+          <li><strong>Image Synthesis (ACGAN):</strong> Improved image generation quality for synthetic data use.</li>
+          <li><strong>UNet for Medical Segmentation:</strong> Enhanced segmentation speed and model efficiency for biomedical images.</li>
+        </ul>
+      </section>
 
     </main>
   </div>
