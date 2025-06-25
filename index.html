@@ -1,18 +1,17 @@
-give me full code with updates <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Most Husne Jahan | PhD Student</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap">
   <style>
-    /* Reset & base */
     *, *::before, *::after {
       box-sizing: border-box;
     }
     body {
       margin: 0;
-      font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-family: 'Source Sans Pro', sans-serif;
       color: #333;
       background: #fefefe;
       line-height: 1.6;
@@ -27,53 +26,75 @@ give me full code with updates <!DOCTYPE html>
       text-decoration: underline;
     }
 
-.contact-links {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  width: 100%;
-}
+    header.topnav {
+      background-color: #2c3e50;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header.topnav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    header.topnav ul li a {
+      color: #ecf0f1;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      padding: 0.5rem 0;
+    }
+    header.topnav ul li a:hover {
+      color: #16a085;
+      text-decoration: underline;
+    }
 
-.contact-links a {
-  color: #16a085;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  line-height: 1.4;
-}
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      width: 100%;
+    }
+    .contact-links a {
+      color: #16a085;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .contact-links a:hover,
+    .contact-links a:focus {
+      color: #004d40;
+      text-decoration: underline;
+    }
+    .contact-links span {
+      font-size: 1.1rem;
+    }
 
-.contact-links a:hover,
-.contact-links a:focus {
-  color: #004d40;
-  text-decoration: underline;
-}
-
-.contact-links span {
-  font-size: 1.1rem;
-}
-
-    
-    /* Layout */
     .container {
       display: flex;
       min-height: 100vh;
     }
-   
-    /* Sidebar */
+
     nav.sidebar {
       width: 260px;
-      background-color: #2c3e50;
-      color: #ecf0f1;
+      background-color: #f9f9f9;
       padding: 2rem 1.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       flex-shrink: 0;
+      border-right: 1px solid #ddd;
     }
     nav.sidebar img.profile-pic {
       width: 140px;
@@ -84,7 +105,6 @@ give me full code with updates <!DOCTYPE html>
       border: 3px solid #16a085;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
-    /* Sidebar header with contact icons */
     .sidebar-header {
       text-align: center;
       margin-bottom: 1.8rem;
@@ -100,33 +120,9 @@ give me full code with updates <!DOCTYPE html>
       font-style: italic;
       font-size: 0.9rem;
       margin: 0 0 1rem 0;
-      color: #bdc3c7;
-    }
-    
-
-    nav.sidebar ul {
-      list-style: none;
-      padding: 0;
-      width: 100%;
-    }
-    nav.sidebar ul li {
-      margin: 0.7rem 0;
-      text-align: center;
-    }
-    nav.sidebar ul li a {
-      display: block;
-      padding: 0.6rem 0;
-      font-weight: 600;
-      border-radius: 4px;
-    }
-    nav.sidebar ul li a:hover,
-    nav.sidebar ul li a:focus {
-      background-color: #16a085;
-      color: #fff;
-      outline: none;
+      color: #555;
     }
 
-    /* Main content */
     main.content {
       flex: 1;
       padding: 3rem 4rem;
@@ -134,7 +130,6 @@ give me full code with updates <!DOCTYPE html>
       margin: 0 auto;
     }
 
-    /* Section headings */
     main.content section {
       margin-bottom: 3rem;
     }
@@ -147,7 +142,6 @@ give me full code with updates <!DOCTYPE html>
       margin-bottom: 1.5rem;
     }
 
-    /* Cards */
     .card {
       background: #fff;
       border-radius: 6px;
@@ -201,14 +195,12 @@ give me full code with updates <!DOCTYPE html>
       margin-top: -0.5rem;
     }
 
-    /* About section override for flow text */
     #about p {
       font-size: 1.1rem;
       line-height: 1.7;
       color: #2f2f2f;
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
       .container {
         flex-direction: column;
@@ -218,19 +210,14 @@ give me full code with updates <!DOCTYPE html>
         flex-direction: row;
         justify-content: space-around;
         padding: 1rem;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
       }
-      nav.sidebar img.profile-pic {
+      nav.sidebar img.profile-pic,
+      nav.sidebar h1,
+      nav.sidebar p,
+      .sidebar-header {
         display: none;
-      }
-      nav.sidebar h1, nav.sidebar p, .sidebar-header {
-        display: none;
-      }
-      nav.sidebar ul {
-        display: flex;
-        width: auto;
-      }
-      nav.sidebar ul li {
-        margin: 0 0.5rem;
       }
       main.content {
         padding: 2rem;
@@ -239,25 +226,39 @@ give me full code with updates <!DOCTYPE html>
   </style>
 </head>
 <body>
+  <header class="topnav">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="#projects">Generative AI & CV Projects</a></li>
+    </ul>
+  </header>
+
   <div class="container">
-    <nav class="sidebar" role="navigation" aria-label="Sidebar Navigation">
+    <nav class="sidebar">
       <img src="profile.png" alt="Most Husne Jahan" class="profile-pic" />
       <div class="sidebar-header">
-      <h1>Most Husne Jahan</h1>
-      <p class="role">PhD Student, York University</p>
-      <div class="contact-links" aria-label="Contact Information">
-      <a href="mailto:mosthusne.jahan@gmail.com" title="Email">
-        <span>📧</span> mosthusne.jahan@gmail.com
-      </a>
-      <a href="https://linkedin.com/in/husnejahan" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-        <span>🔗</span> linkedin.com/in/husnejahan
-      </a>
-      <a href="https://github.com/husnejahan" target="_blank" rel="noopener noreferrer" title="GitHub">
-        <span>🐙</span> github.com/husnejahan
-      </a>
-    </div>
+        <h1>Most Husne Jahan</h1>
+        <p class="role">PhD Student, York University</p>
+        <div class="contact-links">
+          <a href="mailto:mosthusne.jahan@gmail.com"><span>📧</span> mosthusne.jahan@gmail.com</a>
+          <a href="https://linkedin.com/in/husnejahan" target="_blank"><span>🔗</span> linkedin.com/in/husnejahan</a>
+          <a href="https://github.com/husnejahan" target="_blank"><span>🐙</span> github.com/husnejahan</a>
+        </div>
+      </div>
+    </nav>
 
-    </div>
+    <main class="content">
+      <section id="about" class="section">
+        <h2 class="section-title">About</h2>
+        <p>
+          I am a PhD student at York University with expertise in 3D vision, point cloud compression, and video super-resolution. My current research focuses on transformer-based models for immersive media compression and video generation.
+        </p>
 
       <ul>
         <li><a href="#about">About</a></li>
