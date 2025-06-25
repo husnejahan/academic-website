@@ -1,1 +1,1 @@
-https://husnejahan.github.io/academic-website/
+https://husnejahan.github.io/portfolio/
