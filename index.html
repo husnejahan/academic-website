@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Most Husne Jahan | PhD Student</title>
+  <title>Most Husne Jahan | Machine Learning Engineer </title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap">
   <style>
     *, *::before, *::after {
@@ -52,33 +52,6 @@
     header.topnav ul li a:hover {
       color: #16a085;
       text-decoration: underline;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
-      margin-top: 1rem;
-      width: 100%;
-    }
-    .contact-links a {
-      color: #16a085;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      line-height: 1.4;
-    }
-    .contact-links a:hover,
-    .contact-links a:focus {
-      color: #004d40;
-      text-decoration: underline;
-    }
-    .contact-links span {
-      font-size: 1.1rem;
     }
 
     .container {
@@ -133,7 +106,9 @@
     main.content section {
       margin-bottom: 3rem;
     }
-    main.content h2.section-title {
+
+    /* ✨ Animated Section Titles */
+    .section-title {
       font-size: 1.8rem;
       font-weight: 700;
       color: #2c3e50;
@@ -142,6 +117,13 @@
       border-left: 6px solid #16a085;
       border-radius: 4px;
       margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    .section-title.reveal-title {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .card {
@@ -154,53 +136,6 @@
     }
     .card:hover {
       box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-    }
-    .card .card-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-      color: #00796b;
-    }
-    .card .card-title a {
-      color: #00796b;
-    }
-    .card .card-title a:hover {
-      text-decoration: underline;
-      color: #004d40;
-    }
-    .card .subtitle {
-      font-size: 0.9rem;
-      color: #795548;
-      margin-bottom: 1rem;
-      font-style: italic;
-    }
-    .card p, .card ul {
-      font-size: 0.95rem;
-      color: #444;
-      margin-top: 0;
-      margin-bottom: 1rem;
-    }
-    .card ul {
-      padding-left: 1.2rem;
-    }
-    .card ul li {
-      margin-bottom: 0.4rem;
-    }
-    .card .tools {
-      font-weight: 600;
-      color: #555;
-    }
-    .card .dates {
-      font-size: 0.85rem;
-      color: #888;
-      text-align: right;
-      margin-top: -0.5rem;
-    }
-
-    #about p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: #2f2f2f;
     }
 
     @media (max-width: 900px) {
@@ -226,7 +161,8 @@
         margin-left: 0;
       }
     }
-  </style>
+
+ </style>
 </head>
 
   
@@ -249,7 +185,7 @@
       <img src="profile.png" alt="Most Husne Jahan" class="profile-pic" />
       <div class="sidebar-header">
         <h1>Most Husne Jahan</h1>
-        <p class="role">PhD Student, York University</p>
+        <p class="role">Machine Learning Engineer </p>
         <div class="contact-links">
           <a href="mailto:mosthusne.jahan@gmail.com"><span>📧</span> mosthusne.jahan@gmail.com</a>
           <a href="https://linkedin.com/in/husnejahan" target="_blank"><span>🔗</span> linkedin.com/in/husnejahan</a>
@@ -482,5 +418,26 @@
 
   </main>
 </div>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-title");
+            observer.unobserve(entry.target); // animate only once
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    document.querySelectorAll(".section-title").forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>
+
 </body>
 </html>
